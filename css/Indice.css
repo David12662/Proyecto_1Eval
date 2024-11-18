@@ -1,0 +1,41 @@
+
+.dropdown-toggle {
+    padding: 0; 
+    width: auto;
+}
+
+.dropdown-menu {
+    min-width: 0; 
+}
+.navbar-custom {
+    background-color: #2b2b2b;
+    padding: 10px;
+}
+.form-control-custom {
+    background-color: #343a40;
+    color: #ffffff;
+    border: none;
+}
+.form-control-custom::placeholder {
+    color: #cccccc;
+}
+input{
+    height: 60px;
+}
+nav{
+    margin-top: 1%;
+    background-color: #343a40;
+    min-height: 90px;
+    
+}
+h1{
+    color: snow;
+}
+.carousel-item img{
+    border-radius: 15px;
+    padding: 10px;
+} 
+
+footer{
+    background-color: #343a40;
+}

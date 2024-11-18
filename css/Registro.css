@@ -1,0 +1,13 @@
+.bg-darkcustom{
+    background-color: rgb(49, 54, 63);
+}
+.bg-infocustom{
+    background-color: rgb(118, 171, 174);
+}
+.btn{
+    background-color: rgb(238, 238, 238);  
+    color: rgb(57, 62, 70);
+}
+a{
+    text-decoration: none;
+}
