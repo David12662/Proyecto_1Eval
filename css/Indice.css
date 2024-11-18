@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 .dropdown-toggle {
     padding: 0; 
     width: auto;
@@ -28,8 +28,8 @@ nav{
     min-height: 90px;
     
 }
-h1{
-    color: snow;
+h1,h6{
+    font-family: "Geist Mono", monospace !important;
 }
 .carousel-item img{
     border-radius: 15px;
