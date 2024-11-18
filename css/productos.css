@@ -20,6 +20,10 @@
     z-index: -999;
 }
 
+.customcard:hover{
+    transform: scale(1.05);
+}
+
 .title span{
     background-color: rgb(34, 40, 49) ;
     padding-right: 10px;
@@ -27,4 +31,8 @@
 
 footer{
     background-color: #343a40;
+}
+.card-body a:hover{
+    background-color: transparent;
+
 }
