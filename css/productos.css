@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 .title{
     overflow: hidden;
     padding: 0;
@@ -20,6 +20,14 @@
     z-index: -999;
 }
 
+.customcard{
+    font-family: "Roboto", sans-serif !important;
+}
+
+.customcard:hover{
+    transform: scale(1.05);
+}
+
 .title span{
     background-color: rgb(34, 40, 49) ;
     padding-right: 10px;
@@ -27,4 +35,8 @@
 
 footer{
     background-color: #343a40;
+}
+.card-body a:hover{
+    background-color: transparent;
+
 }

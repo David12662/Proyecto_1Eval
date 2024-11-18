@@ -159,14 +159,14 @@
                         const tarjeta = `
                             <div class="col-md-3 mb-3">
                                 <a href="Detalle.html?id=${producto.idProducto}" class="text-decoration-none text-white">
-                                    <div class="card border rounded-5">
-                                        <div class="ratio ratio-16x9">
+                                    <div class="card border rounded-5 customcard">
+                                        <div class="ratio ratio-16x9 customratio">
                                             <img class="rounded-5 rounded-bottom-0" src="../public/${producto.foto}" alt="${producto.nombre}">
                                         </div>
                                         <div class="card-body">
                                             <h5 class="card-title">${producto.nombre}</h5>
                                             <p class="card-text">Categoría: ${producto.categoria}</p>
-                                            <p class="card-text">Precio: ${producto.precio.toFixed(2)} €</p>
+                                            <p class="card-text">Precio: ${producto.precio}€</p>
                                             <a href="#" class="btn mt-3 btn-primary">Comprar</a>
                                     </div>
                                 </a>
