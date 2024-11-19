@@ -30,6 +30,11 @@ async function cargarDetallesProducto(idProducto) {
     
 }
 
+document.getElementById('boton_tramitar').addEventListener('click', function(){
+    window.location.href = "Confirmacion.html";
+});
+
+
 function mostrarDetallesProducto(producto){
     document.getElementById('productimage').src=`../public/${producto.foto}`; 
     document.getElementById('nombre').textContent = producto.nombre;
