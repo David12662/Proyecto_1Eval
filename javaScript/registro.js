@@ -23,6 +23,12 @@ document.getElementById("register-btn").addEventListener("click", function () {
         alert("Las contraseñas no coinciden.");
         return;
     }
+
+    if (!datos.dniCliente || !datos.nombre || !datos.direccion || !datos.email || !datos.password) {
+        alert("Por favor complete todos los campos.");
+        return;
+    }
+    
     fetch("../servicios/clientes/ClienteService.php", {
         method: "POST",
         headers: {

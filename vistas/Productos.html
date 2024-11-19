@@ -21,7 +21,10 @@
                             <input class="form-control form-control-custom me-2" type="search" placeholder="Buscar" aria-label="Search">
                         </form>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-3 d-flex justify-content-end align-items-center">
+                        <button class="btn btn-outline-light me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas" aria-controls="cartOffcanvas">
+                            🛒 Ver Cesta
+                        </button>
                         <div class="flex-shrink-0 dropdown">
                             <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
                               <img src="../css/Fotos/UsuarioBlanco.png" alt="mdo" width="80" height="80" class="rounded-circle">
@@ -44,6 +47,41 @@
         </div>
         <div class="row mx-5 mt-4" id="contenedor">
 
+        </div>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas" aria-labelledby="cartOffcanvasLabel">
+            <div class="offcanvas-header">
+                <h5 id="cartOffcanvasLabel">Cesta</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div class="d-flex mb-3">
+                    <img src="https://via.placeholder.com/80" alt="Producto" class="img-thumbnail me-3">
+                    <div>
+                        <h6>Macarrones con tomate</h6>
+                        <p>Precio: 39,99 €</p>
+                        <p>Cantidad: 1</p>
+                    </div>
+                    <div class="ms-auto">
+                        <button class="btn btn-outline-danger btn-sm">🗑️</button>
+                    </div>
+                </div>
+                <hr>
+                <h6>Esto podría gustarte</h6>
+                <div class="d-flex mb-2">
+                    <img src="https://via.placeholder.com/60" alt="Producto" class="img-thumbnail me-3">
+                    <p>Atun - 25,99 €</p>
+                </div>
+                <div class="d-flex mb-2">
+                    <img src="https://via.placeholder.com/60" alt="Producto" class="img-thumbnail me-3">
+                    <p>Tallarines - 22,99 €</p>
+                </div>
+                <hr>
+                
+                <div class="d-flex justify-content-between align-items-center">
+                    <p class="fw-bold">Total: 39,99 €</p>
+                    <button class="btn btn-success">Tramitar Pedido</button>
+                </div>
+            </div>
         </div>
         <footer class="text-white mt-4">
             <div>
@@ -164,7 +202,7 @@
                                             <img class="rounded-5 rounded-bottom-0" src="../public/${producto.foto}" alt="${producto.nombre}">
                                         </div>
                                         <div class="card-body">
-                                            <h5 class="card-title">${producto.nombre}</h5>
+                                            <h5 class="card-title customtitle">${producto.nombre}</h5>
                                             <p class="card-text">Categoría: ${producto.categoria}</p>
                                             <p class="card-text">Precio: ${producto.precio}€</p>
                                             <a href="#" class="btn mt-3 btn-primary">Comprar</a>

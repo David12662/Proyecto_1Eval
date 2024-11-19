@@ -11,17 +11,6 @@
     background-color: #2b2b2b;
     padding: 10px;
 }
-.form-control-custom {
-    background-color: #343a40;
-    color: #ffffff;
-    border: none;
-}
-.form-control-custom::placeholder {
-    color: #cccccc;
-}
-input{
-    height: 60px;
-}
 nav{
     margin-top: 1%;
     background-color: #343a40;

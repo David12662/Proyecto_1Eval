@@ -29,7 +29,10 @@
                             <input class="form-control form-control-custom me-2" type="search" placeholder="Buscar" aria-label="Search">
                         </form>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-3 d-flex justify-content-end align-items-center">
+                        <button class="btn btn-outline-light me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas" aria-controls="cartOffcanvas">
+                            🛒 Ver Cesta
+                        </button>
                         <div class="flex-shrink-0 dropdown">
                             <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
                               <img src="../css/Fotos/UsuarioBlanco.png" alt="mdo" width="80" height="80" class="rounded-circle">
@@ -59,7 +62,7 @@
                         <img id="productimage" src="" alt="Imagen del producto" class="rounded-5"  style="width: 35vw; height: 50vh;"/>
                     </div>
                     <div class="ms-5 mt-5">
-                        <h1 class="text-white" id="nombre"></h1>
+                        <h1 class="text-white" id="nombre"></h1>    
                         <div class="rounded-5 customdiv text-white mt-3">
                             <div class="mt-5">
                                 <ul class="d-flex justify-content-around gap-5">
@@ -86,13 +89,52 @@
                         </div>
                         <p class=" text-white quantity-label">ELIGE LA CANTIDAD <span>(1 en el carrito)</span></p>
                         <div class="d-flex align-items-center justify-content-center mt-5">
-                            <button type="button" class="btn rounded-5 bg-white text-dark" id="boton_agregar">Agregar al carrito<span><span class="ms-2" id="precio"></span></span>€</button>
+                            <button type="button" class="btn rounded-5 bg-white text-dark" id="boton_agregar">Agregar al carrito<span>
+                                <span class="ms-2" id="precio"></span></span>€
+                            </button>
+                           
                         </div>
         
                     </div>  
                 </div>
 
               </div>
+
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas" aria-labelledby="cartOffcanvasLabel">
+                <div class="offcanvas-header">
+                    <h5 id="cartOffcanvasLabel">Cesta</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <div class="d-flex mb-3">
+                        <img src="https://via.placeholder.com/80" alt="Producto" class="img-thumbnail me-3">
+                        <div>
+                            <h6>Macarrones con tomate</h6>
+                            <p>Precio: 39,99 €</p>
+                            <p>Cantidad: 1</p>
+                        </div>
+                        <div class="ms-auto">
+                            <button class="btn btn-outline-danger btn-sm">🗑️</button>
+                        </div>
+                    </div>
+                    <hr>
+                    <h6>Esto podría gustarte</h6>
+                    <div class="d-flex mb-2">
+                        <img src="https://via.placeholder.com/60" alt="Producto" class="img-thumbnail me-3">
+                        <p>Atun - 25,99 €</p>
+                    </div>
+                    <div class="d-flex mb-2">
+                        <img src="https://via.placeholder.com/60" alt="Producto" class="img-thumbnail me-3">
+                        <p>Tallarines - 22,99 €</p>
+                    </div>
+                    <hr>
+                    
+                    <div class="d-flex justify-content-between align-items-center">
+                        <p class="fw-bold">Total: 39,99 €</p>
+                        <button class="btn btn-success">Tramitar Pedido</button>
+                    </div>
+                </div>
+            </div>
         </main>
         <footer class="text-white mt-4">
             <div>
@@ -170,7 +212,6 @@
                 <p><i class="fas fa-phone mr-3"></i> + 34 658 89 03 65</p>
                 </div>
             </div>
-          
             </div>
         </section>   
     </footer>
