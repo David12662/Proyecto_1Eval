@@ -28,22 +28,7 @@ document.getElementById("register-btn").addEventListener("click", function () {
         alert("Por favor complete todos los campos.");
         return;
     }
-
-    fetch("../servicios/clientes/ClienteService.php", {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(datos),
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.status === "success") {
-            alert("El DNI ya esta registrado");
-        }
-    })
     
-
     fetch("../servicios/clientes/ClienteService.php", {
         method: "POST",
         headers: {

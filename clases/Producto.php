@@ -40,6 +40,7 @@ class Producto{
         }
     }
 
+
     public static function getAll($conexion){
         $sql="SELECT * FROM productos";
         $result= $conexion->query($sql);

@@ -1,7 +1,5 @@
 <?php
 
-
-
 class Carrito{
     public $idCarrito;
     public $idProducto;
@@ -26,9 +24,22 @@ class Carrito{
         $sql->bindParam(1, $dniCliente, PDO::PARAM_STR);
         $sql->bindParam(2, $idProducto, PDO::PARAM_INT);
         $sql->execute();
-        return $sql->fetch(PDO::FETCH_ASSOC);
+        return $sql->fetchColumn() > 0;
         }catch (PDOException $e){
             $error = "Error al obtener carrito: " . $e->getMessage();
+            require "../vistas/mensaje.php";
+            die();
+        }
+    }
+
+    public static function productExists($conexion, $idProducto) {
+        try {
+            $sql = $conexion->prepare("SELECT COUNT(*) FROM productos WHERE idProducto = ?");
+            $sql->bindParam(1, $idProducto, PDO::PARAM_INT);
+            $sql->execute();
+            return $sql->fetchColumn() > 0;
+        } catch (PDOException $e) {
+            $error = "Error al comprobar existencia del producto: " . $e->getMessage();
             require "../vistas/mensaje.php";
             die();
         }
@@ -44,6 +55,7 @@ class Carrito{
             return true;
         }catch (PDOException $e){
             $error = "Error al obtener carrito: " . $e->getMessage();
+            var_dump($error);
             require "../vistas/mensaje.php";
             die();
         }   
@@ -54,7 +66,7 @@ class Carrito{
             if($newCantidad == 0){
                 self::deleteProduct($conexion,$dniCliente,$idProducto);
             }else{
-                $sql = $conexion->prepare("UPDATE carrito SET cantidad = ?, WHERE dniCliente = ? AND idProducto = ?");
+                $sql = $conexion->prepare("UPDATE carrito SET cantidad = ? WHERE dniCliente = ? AND idProducto = ?");
                 $sql->bindParam(1, $newCantidad, PDO::PARAM_INT);
                 $sql->bindParam(2, $dniCliente, PDO::PARAM_STR);
                 $sql->bindParam(3, $idProducto, PDO::PARAM_INT);
@@ -69,7 +81,7 @@ class Carrito{
 
     public static function getProducts($conexion, $dniCliente) {
         try {
-            $sql = $conexion->prepare("SELECT * FROM carrito WHERE dniCliente = ?");
+            $sql = $conexion->prepare("SELECT * FROM carrito inner join productos on carrito.idProducto = productos.idProducto WHERE dniCliente = ?");
             $sql->bindParam(1, $dniCliente, PDO::PARAM_STR);
             $sql->execute();
             return $sql->fetchAll(PDO::FETCH_ASSOC);
@@ -83,7 +95,7 @@ class Carrito{
 
     public static function deleteProduct($conexion,$dniCliente,$idProducto){
         try{
-            $sql=$conexion->prepare("DELETE FROM cattiro where dniCliente=? AND idProducto=?");
+            $sql=$conexion->prepare("DELETE FROM carrito where dniCliente=? AND idProducto=?");
             $sql->bindParam(1, $dniCliente, PDO::PARAM_STR);
             $sql->bindParam(2, $idProducto, PDO::PARAM_INT);
             $sql->execute();

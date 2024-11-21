@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function() {
             return;
         }
 
-        fetch("../servicios/clientes/ClienteService.php", {
+        await fetch("../servicios/clientes/ClienteService.php", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -36,8 +36,8 @@ document.addEventListener("DOMContentLoaded", function() {
         .then(response => response.json())
         .then(data => {
             if (data.status === "success") {
-                alert("Usuario registrado con éxito");
-                window.location.href = "Login.html"; 
+                alert("Inicio de sesión exitoso.");
+                window.location.href = "Productos.html";
             } else {
                 alert(data.message || "Error al registrar usuario");
             }
@@ -48,7 +48,6 @@ document.addEventListener("DOMContentLoaded", function() {
         });
 
     
-        alert("Inicio de sesión exitoso.");
-        window.location.href = "Indice.html";
+        
     });
 });

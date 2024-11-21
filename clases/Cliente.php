@@ -53,13 +53,13 @@
                 $consulta->execute();
                 $cliente = $consulta->fetch(PDO::FETCH_ASSOC);
                 
-                if ($cliente && password_verify($password, $cliente['passwordHash'])) {
+                if ($cliente && password_verify($password, $cliente['pwd'])) {
                     return new Cliente(
                         $cliente['dniCliente'],
                         $cliente['nombre'],
                         $cliente['direccion'],
                         $cliente['email'],
-                        $cliente['passwordHash']
+                        $cliente['pwd']
                     );
                 }
                 return null;

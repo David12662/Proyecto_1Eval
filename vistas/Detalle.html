@@ -84,13 +84,14 @@
                         <h2 class="text-white mt-5">Elige la cantidad</h2>
                         <div class="d-flex align-items-center justify-content-center rounded-5 quantity-selector mt-3">
                             <button class="quantity__button quantity__button--minus" type="button">-</button>
-                            <input class="quantity__input" type="text" name="quantity" min="1" step="1" value="1" />
+                            <input class="quantity__input" type="text" id="quantity-1" data-id="1" value="1" />
                             <button class="quantity__button quantity__button--plus" type="button">+</button>
                         </div>
                         <p class=" text-white quantity-label">ELIGE LA CANTIDAD <span>(1 en el carrito)</span></p>
                         <div class="d-flex align-items-center justify-content-center mt-5">
-                            <button type="button" class="btn rounded-5 bg-white text-dark" id="boton_agregar">Agregar al carrito<span>
-                                <span class="ms-2" id="precio"></span></span>€
+                            <button type="button" class="btn rounded-5 bg-white text-dark boton_agregar"
+                                id="boton_agregar">
+                                Agregar al carrito<span><span class="ms-2" id="precio"></span></span>€
                             </button>
                            
                         </div>
@@ -106,32 +107,8 @@
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body">
-                    <div class="d-flex mb-3">
-                        <img src="https://via.placeholder.com/80" alt="Producto" class="img-thumbnail me-3">
-                        <div>
-                            <h6>Macarrones con tomate</h6>
-                            <p>Precio: 39,99 €</p>
-                            <p>Cantidad: 1</p>
-                        </div>
-                        <div class="ms-auto">
-                            <button class="btn btn-outline-danger btn-sm">🗑️</button>
-                        </div>
-                    </div>
-                    <hr>
-                    <h6>Esto podría gustarte</h6>
-                    <div class="d-flex mb-2">
-                        <img src="https://via.placeholder.com/60" alt="Producto" class="img-thumbnail me-3">
-                        <p>Atun - 25,99 €</p>
-                    </div>
-                    <div class="d-flex mb-2">
-                        <img src="https://via.placeholder.com/60" alt="Producto" class="img-thumbnail me-3">
-                        <p>Tallarines - 22,99 €</p>
-                    </div>
-                    <hr>
-                    
                     <div class="d-flex justify-content-between align-items-center">
-                        <p class="fw-bold">Total: 39,99 €</p>
-                        <button class="btn btn-success" id="boton_tramitar">Tramitar Pedido</button>
+                        <p class="fw-bold"></p>
                     </div>
                 </div>
             </div>
@@ -216,6 +193,7 @@
         </section>   
     </footer>
         <script src="../javaScript/detalle.js?v=1.1"></script>
+        <script src="../javaScript/carrito.js"></script>
         <script
             src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
             integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"

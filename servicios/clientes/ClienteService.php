@@ -23,7 +23,7 @@ class ClienteService {
     }
 
     public function validar($datos) {
-        $cliente = Cliente::validar($this->db, $datos["email"], password_hash($datos["password"], PASSWORD_BCRYPT));
+        $cliente = Cliente::validar($this->db, $datos["email"], $datos["password"]);
         if ($cliente) {
             session_start();
             $_SESSION["nombre"] = $cliente->__get("nombre");
