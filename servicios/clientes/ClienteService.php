@@ -42,6 +42,31 @@ class ClienteService {
             return json_encode(["status" => "error", "message" => "Cliente no encontrado"]);
         }
     }
+
+    public function obtenerSesion(){
+        session_start();
+        if (isset($_SESSION["nombre"])) {
+            return json_encode(["status" => "success", "usuario" => ["nombre" => $_SESSION["nombre"]] ]);
+        } else{
+            return json_encode(["status" => "error", "message" => "Sesion no iniciada"]);
+        }
+    }
+
+    public function obtenerTodosLosDatosDeSesion(){
+        session_start();
+        if(isset($_SESSION["dniCliente"])) {
+            $cliente = Cliente::obtenerPorDNI($this->db, $_SESSION["dniCliente"]);
+            return json_encode(["status" => "success", "usuario" => ["dnicliente" => $cliente->__get('dniCliente'),"nombre" => $cliente->__get('nombre'), "direccion" => $cliente->__get('direccion'), "email" => $cliente->__get('email')]]);
+        }
+    }
+
+
+    public function cerrarSesion(){
+        session_start();
+        session_unset();
+        session_destroy();
+        return json_encode(["status" => "success", "message" => "Sesión cerrada correctamente"]);
+    }
 }
 
 header("Access-Control-Allow-Origin: *");
@@ -61,6 +86,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             break;
         case "validar":
             echo $service->validar($input);
+            break;
+        case "obtenerSesion":
+            echo $service->obtenerSesion();
+            break;
+        case "cerrarSesion":
+            echo $service->cerrarSesion();
+            break;
+        case "obtenerTodosLosDatosDeSesion":
+            echo $service->obtenerTodosLosDatosDeSesion();
             break;
         default:
             echo json_encode(["status" => "error", "message" => "Acción no válida"]);

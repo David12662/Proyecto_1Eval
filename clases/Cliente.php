@@ -85,7 +85,7 @@
                         $cliente['nombre'],
                         $cliente['direccion'],
                         $cliente['email'],
-                        $cliente['passwordHash']
+                        $cliente['pwd']
                     );
                 }
                 return null;
@@ -94,6 +94,11 @@
                 require "../vistas/mensaje.php";
                 die();
             }
+        }
+
+        function __toString()
+        {
+            return "hola";
         }
 
     }

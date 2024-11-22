@@ -22,7 +22,7 @@
                     <h4>Contacto</h4>
                     <div class="mb-3">
                         <label for="email" class="form-label">Correo electrónico</label>
-                        <input type="email" class="form-control" id="email" placeholder="Correo electrónico">
+                        <input  type="email" class="form-control text-black" id="email" placeholder="Correo electrónico">
                     </div>
                     <div class="mb-3 form-check">
                         <input type="checkbox" class="form-check-input" id="novedades">
@@ -31,26 +31,26 @@
                     <h4>Entrega</h4>
                     <div class="row mb-3">
                         <div class="col-md-6">
-                            <label for="nombre" class="form-label">Nombre</label>
-                            <input type="text" class="form-control" id="nombre" placeholder="Nombre">
+                            <label for="nombre"  class="form-label">Nombre</label>
+                            <input type="text" class="form-control text-black" id="nombre" placeholder="Nombre">
                         </div>
                         <div class="col-md-6">
-                            <label for="apellidos" class="form-label">Apellidos</label>
-                            <input type="text" class="form-control" id="apellidos" placeholder="Apellidos">
+                            <label for="dni" class="form-label">DNI</label>
+                            <input type="text" class="form-control text-black" id="dni" placeholder="Apellidos">
                         </div>
                     </div>
                     <div class="mb-3">
                         <label for="direccion" class="form-label">Dirección</label>
-                        <input type="text" class="form-control" id="direccion" placeholder="Calle, apartamento, etc.">
+                        <input type="text" class="form-control text-black" id="direccion" placeholder="Calle, apartamento, etc.">
                     </div>
                     <div class="row mb-3">
                         <div class="col-md-4">
                             <label for="codigoPostal" class="form-label">Código postal</label>
-                            <input type="text" class="form-control" id="codigoPostal">
+                            <input type="text" class="form-control text-black" id="codigoPostal">
                         </div>
                         <div class="col-md-4">
                             <label for="ciudad" class="form-label">Ciudad</label>
-                            <input type="text" class="form-control" id="ciudad">
+                            <input type="text" class="form-control text-black" id="ciudad">
                         </div>
                         <div class="col-md-4">
                             <label for="provincia" class="form-label">Provincia</label>
@@ -105,9 +105,10 @@
                     </div>
                 </div>
             </div>
+            <button type="button" class="btn btn-primary w-100 mt-4" id="confirmarCompra">Confirmar compra</button>
         </div>
     </div>
-
+    <script src="../javaScript/confirmacion.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

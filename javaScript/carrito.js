@@ -11,10 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    loadCart(); // Cargar el carrito inicial
+    loadCart(); 
     async function cargarDetallesProducto(idProducto) {
         try {
-            // Obtener los detalles del producto
             const response = await fetch(`../servicios/productos/ProductoService.php?id=${idProducto}`);
             const data = await response.json();
     
@@ -171,8 +170,6 @@ async function  isValidated(){
 
 }
 
-
-
 function attachCartEvents() {
     document.querySelectorAll('.form-control-sm').forEach(input => {
         input.addEventListener('change', async () => {
@@ -205,7 +202,6 @@ function attachCartEvents() {
 
         
     });
-
 
     document.querySelectorAll('.btn-delete').forEach(button => {
         button.addEventListener('click', async () => {

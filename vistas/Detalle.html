@@ -40,6 +40,8 @@
                             <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
                               <li><a class="dropdown-item" href="Registro.html">Registrar</a></li>
                               <li><a class="dropdown-item" href="Login.html">Iniciar Sesion</a></li>
+                              <li><hr class="dropdown-divider"></li>
+                              <li><a class="dropdown-item" href="#" id="cerrarSesion">Cerrar Sesión</a></li>
                             </ul>
                           </div>
                     </div>
@@ -194,6 +196,60 @@
     </footer>
         <script src="../javaScript/detalle.js?v=1.1"></script>
         <script src="../javaScript/carrito.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', async () => {
+                try {
+                    const response = await fetch('../servicios/clientes/ClienteService.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            'action': 'obtenerSesion',
+                        })
+                    });
+                    const data = await response.json();
+                    if (data.status === 'success') {
+                        const userIconContainer = document.querySelector('#dropdownUser2');
+                        userIconContainer.innerHTML = `<span class="text-white text-decoration-none fw-bold ms-4">Bienvenido, ${data.usuario.nombre}</span>`;
+                    }
+                    
+                    
+                    }catch  (error) {
+                    console.error('Error de la sesion', error);
+                }
+            });
+
+            document.addEventListener('DOMContentLoaded', () => {
+            const cerrarSesionBtn = document.getElementById('cerrarSesion');
+    
+            cerrarSesionBtn.addEventListener('click', async (e) => {
+                e.preventDefault();
+
+                try {
+                    const response = await fetch('../servicios/clientes/ClienteService.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            action: 'cerrarSesion',
+                        }),
+                    });
+
+                    const data = await response.json();
+                    if (data.status === 'success') {
+                        alert('Sesión cerrada correctamente.');
+                        window.location.href = 'Login.html'; 
+                    } else {
+                        console.error('Error al cerrar sesión:', data.message);
+                    }
+                } catch (error) {
+                    console.error('Error al cerrar sesión:', error);
+                }
+            });
+        });
+        </script>
         <script
             src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
             integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
